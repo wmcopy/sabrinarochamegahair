@@ -144,9 +144,8 @@ section{padding:clamp(2.6rem,8vw,4.2rem) 0}
 .rv.in{opacity:1;transform:none}
 
 /* ---- Prova #1: slider ---- */
-.ba{position:relative;width:100%;aspect-ratio:1200/2112;height:auto;max-height:950px;min-height:640px;border-radius:var(--r-md);overflow:hidden;user-select:none;-webkit-user-select:none;box-shadow:var(--shadow-1)}
-@media(min-width:768px){.ba{aspect-ratio:1200/2112;min-height:640px;max-height:950px}
-@media(min-width:768px){.ba{aspect-ratio:1200/2112;min-height:720px;max-height:950px}}}
+.ba{position:relative;width:100%;height:400px;border-radius:var(--r-md);overflow:hidden;user-select:none;-webkit-user-select:none;box-shadow:var(--shadow-1)}
+@media(min-width:768px){.ba{height:500px}}
 .ba .layer{position:absolute;inset:0}
 .ba .layer.clip{clip-path:inset(0 50% 0 0)}
 .ba-label{position:absolute;top:14px;z-index:3;font-size:.66rem;font-weight:600;letter-spacing:.18em;padding:.35rem .6rem;border-radius:6px}
@@ -164,7 +163,7 @@ section{padding:clamp(2.6rem,8vw,4.2rem) 0}
 .ba-caption{margin-top:var(--space-2);font-family:var(--font-display);font-style:italic;font-size:1.02rem;color:var(--cream);max-width:44ch}
 .ba-hint{margin-top:.4rem;font-size:.7rem;letter-spacing:.22em;text-transform:uppercase;color:var(--muted)}
 
-/* ---- Quem&nbsp;aplica ---- */
+/* ---- Quem aplica ---- */
 .about{display:grid;gap:var(--space-3);align-items:center}
 .about .media{max-width:420px;width:100%;margin-inline:auto}
 .about blockquote{
@@ -183,17 +182,7 @@ section{padding:clamp(2.6rem,8vw,4.2rem) 0}
 .srv-item p{color:var(--muted);font-weight:300;font-size:.93rem}
 .srv-foot{display:flex;flex-wrap:wrap;align-items:center;gap:.8rem;justify-content:space-between;margin-top:.2rem}
 .srv-tag{font-size:.68rem;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:var(--champ)}
-.srv-link{
-  display:inline-flex;align-items:center;justify-content:center;gap:8px;
-  min-height:38px;padding:0 16px;
-  border:1px solid rgba(246,240,232,.22);border-radius:999px;
-  font-size:.70rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;
-  color:var(--cream);background:transparent;
-  transition:border-color .2s,background .2s,color .2s,transform .2s;
-}
-.srv-link:hover{border-color:var(--champ);background:rgba(195,162,107,.08);transform:translateY(-1px)}
-.srv-link:active{transform:scale(.98)}
-.srv-link .btn-icon{width:14px;height:14px;flex:0 0 14px;fill:currentColor;display:block}
+.srv-link{font-size:.78rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:var(--cream);border-bottom:1px solid rgba(195,162,107,.5);padding-bottom:2px;transition:color .2s,border-color .2s;min-height:24px;display:inline-flex;align-items:center}
 .srv-link:hover{color:var(--champ)}
 
 /* ---- Galeria ---- */
@@ -344,8 +333,7 @@ footer .wrap{display:grid;gap:var(--space-2);justify-items:center;text-align:cen
   .depo-nav{margin-top:1.8rem}
 }
 @media(prefers-reduced-motion:reduce){
-  .btn-wa,.obj-item,.map-card,.tile .media,.depo-card{transition:none !important;transform:none !important}
-/* srv-item hover premium reativado */
+  .btn-wa,.srv-item,.obj-item,.map-card,.tile .media,.depo-card{transition:none !important;transform:none !important}
 }
 
 
@@ -568,7 +556,16 @@ footer .wrap{display:grid;gap:var(--space-2);justify-items:center;text-align:cen
 .btn-ghost{
   gap:.55rem;
 }
-.srv-link .btn-icon{width:14px;height:14px;flex:0 0 14px;fill:currentColor;display:block}
+.srv-link .btn-icon{
+  width:15px;
+  height:15px;
+  flex:0 0 15px;
+  display:block;
+  color:currentColor;
+  fill:currentColor;
+  stroke:none;
+  pointer-events:none;
+}
 #mapBtn{
   display:inline-flex;
   align-items:center;
@@ -635,111 +632,14 @@ footer .wrap{display:grid;gap:var(--space-2);justify-items:center;text-align:cen
 .btn-wa-new{max-width:100%; box-sizing:border-box}
 .hero .btn-wa-new,.final .btn-wa-new{width:100%;max-width:420px}
 .stickybar .btn-wa-new{width:100%;max-width:none}
-
-/* srv vazado - respeita espaçamento */
-.srv-foot{gap:1rem}
-@media(max-width:640px){.srv-foot{flex-direction:column;align-items:flex-start}
-.srv-foot .srv-link{width:100%;justify-content:center}}
-
-/* seta aumentada 4px */
-.cue span{display:inline-block;font-size:calc(1em + 4px);line-height:1;transform:translateY(1px)}
-
-/* ===== HOVER PREMIUM - O que você encontra no&nbsp;Espaço ===== */
-.srv-item{
-  position:relative;
-  padding:var(--space-3) 1.1rem;
-  margin:0 -1.1rem;
-  border-radius:14px;
-  border-top:1px solid var(--line);
-  border-left:1px solid transparent;
-  border-right:1px solid transparent;
-  border-bottom:1px solid transparent;
-  overflow:hidden;
-  transition:background .4s var(--ease), border-color .4s var(--ease), transform .4s var(--ease), box-shadow .4s var(--ease);
-}
-.srv-item:last-child{border-bottom:1px solid var(--line)}
-.srv-item::before{
-  content:"";
-  position:absolute;
-  left:0;
-  top:50%;
-  width:2px;
-  height:0;
-  background:linear-gradient(180deg, var(--champ) 0%, var(--rose-deep) 100%);
-  border-radius:2px;
-  transform:translateY(-50%);
-  transition:height .4s var(--ease), opacity .3s var(--ease);
-  opacity:0;
-  pointer-events:none;
-}
-.srv-item::after{
-  content:"";
-  position:absolute;
-  inset:0;
-  background:radial-gradient(520px 220px at 0% 50%, rgba(195,162,107,.10), transparent 70%);
-  opacity:0;
-  transition:opacity .4s var(--ease);
-  pointer-events:none;
-  border-radius:inherit;
-}
-.srv-item:hover{
-  background:linear-gradient(180deg, rgba(246,240,232,.04), rgba(246,240,232,.02));
-  border-color:rgba(195,162,107,.32);
-  border-top-color:rgba(195,162,107,.32);
-  transform:translateY(-2px);
-  box-shadow:0 12px 32px rgba(0,0,0,.28), inset 0 1px 0 rgba(246,240,232,.06);
-}
-.srv-item:hover::before{height:52%;opacity:1}
-.srv-item:hover::after{opacity:1}
-.srv-item:hover .srv-num{color:var(--champ)}
-.srv-item:hover .srv-link{border-color:rgba(195,162,107,.45);background:rgba(195,162,107,.10)}
-@media(max-width:640px){
-  .srv-item{margin:0 -1rem;padding-left:1rem;padding-right:1rem}
-}
-
-
-/* ícone pino animado suave - Como chegar */
-@keyframes pinBounce{
-  0%,100%{transform:translateY(0)}
-  50%{transform:translateY(-3px)}
-}
-.btn-icon.pin-anim{
-  animation:pinBounce 1.9s ease-in-out infinite;
-  will-change:transform;
-  transform-origin:center bottom;
-}
-@media(prefers-reduced-motion:reduce){
-  .btn-icon.pin-anim{animation:none}
-}
-
-
-/* === Refinamento de órfãs - mínimo 3 palavras por linha no mobile === */
-h1, h2, h3{
-  text-wrap:balance;
-  overflow-wrap:normal;
-  word-break:normal;
-}
-p, .micro, .muted{
-  text-wrap:pretty;
-}
-.kicker, .ba-label, .srv-num{
-  white-space:nowrap;
-}
-.hero-title, #t-prova, #t-espaco, #t-portfolio, #t-faq, #t-depo, #t-cta, #t-map{
-  orphans:3;
-  widows:3;
-}
-@media(max-width:640px){
-  h1{font-size:clamp(1.7rem, 7.5vw, 2.4rem); line-height:1.12}
-  h2{line-height:1.18}
-  .micro{line-height:1.55}
-}
-
 </style>
 
 <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
 
+  <link rel="icon" type="image/avif" href="img/favicon.avif">
+  <link rel="shortcut icon" href="img/favicon.avif">
+  <link rel="apple-touch-icon" href="img/favicon.avif">
 </head>
 <body>
 <div id="progress" aria-hidden="true"></div>
@@ -792,7 +692,7 @@ p, .micro, .muted{
     </div>
     <div class="topbar-id">
       <strong>Sabrina Rocha</strong>
-      <span>Especialista em Mega Hair • Duque de Caxias - RJ</span>
+      <span>Especialista em Mega Hair • RJ</span>
     </div>
     <a class="icon-btn" href="https://www.instagram.com/sabrinarochamegahair" target="_blank" rel="noopener" aria-label="Abrir Instagram @sabrinarochamegahair">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.2" cy="6.8" r="1.1" fill="currentColor" stroke="none"/></svg>
@@ -808,8 +708,8 @@ p, .micro, .muted{
     <div class="lockup fx d1" aria-label="Espaço Sabrina Rocha" style="display:grid;place-items:center">
       <img src="img/logo1.avif" alt="Espaço Sabrina Rocha" class="hero-logo" width="760" height="auto" style="width:min(88vw, 272px);height:auto;display:block;object-fit:contain" loading="eager" decoding="async">
     </div>
-    <h1 class="fx d2 hero-title">O cabelo que você sempre quis<br> com a naturalidade que&nbsp;você&nbsp;exige.</h1>
-    <p class="micro fx d3">Mega hair personalizado em Rio de Janeiro — aplicação segura, cuidado real do seu fio e acabamento que&nbsp;ninguém&nbsp;nota.</p>
+    <h1 class="fx d2 hero-title">O cabelo que você sempre quis<br> com a naturalidade que você&nbsp;exige.</h1>
+    <p class="micro fx d3">Mega hair personalizado em Rio de Janeiro — aplicação segura, cuidado real do seu fio e acabamento que ninguém nota.</p>
     <div class="cta-zone fx d4">
       <a class="btn-wa-new" href="https://wa.me/5521994822784?text=Ol%C3%A1%2C%20Sabrina!%20Vim%20pelo%20site%20e%20quero%20agendar%20minha%20avalia%C3%A7%C3%A3o." target="_blank" rel="noopener" aria-label="Agendar avaliação WhatsApp">
         <span class="btn-flare" aria-hidden="true"></span>
@@ -817,27 +717,31 @@ p, .micro, .muted{
         <span class="btn-content"><svg class="btn-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M20.52 3.48A11.9 11.9 0 0 0 12.05 0C5.48 0 .13 5.35.13 11.92c0 2.1.55 4.15 1.6 5.98L.02 24l6.25-1.64a11.9 11.9 0 0 0 5.77 1.48h.01c6.56 0 11.9-5.35 11.9-11.92 0-3.18-1.24-6.16-3.43-8.44Zm-8.47 18.3h-.01a9.88 9.88 0 0 1-5.04-1.38l-.36-.22-3.71.97.99-3.62-.24-.37a9.88 9.88 0 0 1-1.52-5.24C2.16 6.47 6.6 2.03 12.05 2.03c2.64 0 5.12 1.03 6.99 2.91a9.82 9.82 0 0 1 2.89 7c0 5.45-4.44 9.84-9.88 9.84Zm5.41-7.37c-.3-.15-1.77-.87-2.04-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.17-.17.2-.35.22-.65.07-.3-.15-1.25-.46-2.38-1.47-.88-.79-1.48-1.76-1.65-2.06-.17-.3-.02-.46.13-.61.14-.14.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.07-.15-.67-1.62-.92-2.22-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.79.37-.27.3-1.03 1.01-1.03 2.46s1.06 2.85 1.2 3.05c.15.2 2.08 3.18 5.04 4.46.7.3 1.25.49 1.68.63.7.22 1.34.19 1.84.12.56-.08 1.77-.72 2.02-1.42.25-.7.25-1.3.17-1.42-.07-.12-.27-.2-.57-.35Z"/></svg><span class="btn-label">Quero agendar minha avaliação</span></span>
         
       </a>
-      <p class="trust">Atendimento direto com a Sabrina • <b>hora&nbsp;marcada</b></p>
+      <p class="trust">Atendimento direto com a Sabrina • <b>hora marcada</b></p>
     </div>
     <span class="cue fx d5" aria-hidden="true">role para ver a transformação<span>↓</span></span>
-    </div>
+    <figure class="media fx d6">
+      <!-- SUBSTITUIR: foto real — costas, resultado completo de mega hair (4:5, WebP, lazy) -->
+      <img src="img/hero1.avif" alt="Resultado mega hair Sabrina Rocha" width="400" height="500" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center top;display:block" loading="eager" fetchpriority="high" decoding="async">
+    </figure>
+  </div>
 </section>
 
 <!-- ============ 03 PROVA #1 — SLIDER ANTES/DEPOIS ============ -->
 <section aria-labelledby="t-prova">
   <div class="wrap">
     <div class="section-head rv">
-      <p class="kicker">Resultado&nbsp;real</p>
-      <h2 id="t-prova">Antes e depois, sem truque&nbsp;de&nbsp;luz.</h2>
+      <p class="kicker">Resultado real</p>
+      <h2 id="t-prova">Antes e depois, sem truque de luz.</h2>
     </div>
     <div class="ba rv" id="ba">
       <div class="layer">
         <!-- DEPOIS — mesma cliente, mesmo enquadramento e luz do ANTES (4:5) -->
-        <img src="img/depois.avif" alt="Depois - Mega hair Sabrina Rocha" width="400" height="500" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 42%;display:block" loading="eager" fetchpriority="high" decoding="async">
+        <img src="img/depois.avif" alt="Depois - Mega hair Sabrina Rocha" width="400" height="500" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center top;display:block" loading="eager" fetchpriority="high" decoding="async">
       </div>
       <div class="layer clip" id="baClip">
         <!-- ANTES — mesma cliente, mesmo enquadramento e luz (4:5) -->
-        <img src="img/antes.avif" alt="Antes - Mega hair Sabrina Rocha" width="400" height="500" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 42%;display:block" loading="eager" fetchpriority="high" decoding="async">
+        <img src="img/antes.avif" alt="Antes - Mega hair Sabrina Rocha" width="400" height="500" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center top;display:block" loading="eager" fetchpriority="high" decoding="async">
         <span class="ba-label before">Antes</span>
       </div>
       <span class="ba-label after">Depois</span>
@@ -846,7 +750,7 @@ p, .micro, .muted{
       <input type="range" min="0" max="100" value="50" id="baRange" aria-label="Comparar antes e depois: arraste para revelar">
     </div>
     <p class="ba-caption rv">“Seus fios novos vão parecer tão naturais que nem você vai querer parar de tocar.”</p>
-    <p class="ba-hint rv">Arraste para&nbsp;comparar</p>
+    <p class="ba-hint rv">Arraste para comparar</p>
   </div>
 </section>
 
@@ -858,7 +762,7 @@ p, .micro, .muted{
       <img src="img/hero1.avif" alt="Resultado mega hair Sabrina Rocha" width="400" height="500" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center top;display:block" loading="eager" fetchpriority="high" decoding="async">
     </figure>
     <div class="rv">
-      <p class="kicker">Quem&nbsp;aplica</p>
+      <p class="kicker">Quem aplica</p>
       <h2 id="t-sobre">Sabrina Rocha</h2>
       <p>Especialista em mega hair. Cada aplicação começa com uma avaliação honesta do seu fio — e só acontece quando o resultado pode ser natural, seguro e seu.</p>
       <blockquote>“Naturalidade não é detalhe: é o projeto inteiro.”</blockquote>
@@ -871,15 +775,15 @@ p, .micro, .muted{
   <div class="wrap">
     <div class="section-head rv">
       <p class="kicker">Serviços</p>
-      <h2 id="t-serv">O que você encontra no&nbsp;Espaço</h2>
+      <h2 id="t-serv">O que você encontra no Espaço</h2>
     </div>
     <div class="srv">
       <article class="srv-item rv">
-        <div class="srv-top"><span class="srv-num">01</span><h3>Mega Hair&nbsp;Personalizado</h3></div>
+        <div class="srv-top"><span class="srv-num">01</span><h3>Mega Hair Personalizado</h3></div>
         <p>Comprimento e volume imediatos com acabamento invisível, definidos para o seu fio na avaliação.</p>
         <div class="srv-foot">
           <span class="srv-tag">Investimento definido na avaliação</span>
-          <a class="srv-link" href="https://wa.me/5521994822784?text=Ol%C3%A1!%20Quero%20um%20or%C3%A7amento%20de%20Mega%20Hair%20Personalizado." target="_blank" rel="noopener"><svg class="btn-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M20.52 3.48A11.9 11.9 0 0 0 12.05 0C5.48 0 .13 5.35.13 11.92c0 2.1.55 4.15 1.6 5.98L.02 24l6.25-1.64a11.9 11.9 0 0 0 5.77 1.48h.01c6.56 0 11.9-5.35 11.9-11.92 0-3.18-1.24-6.16-3.43-8.44Zm-8.47 18.3h-.01a9.88 9.88 0 0 1-5.04-1.38l-.36-.22-3.71.97.99-3.62-.24-.37a9.88 9.88 0 0 1-1.52-5.24C2.16 6.47 6.6 2.03 12.05 2.03c2.64 0 5.12 1.03 6.99 2.91a9.82 9.82 0 0 1 2.89 7c0 5.45-4.44 9.84-9.88 9.84Zm5.41-7.37c-.3-.15-1.77-.87-2.04-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.17-.17.2-.35.22-.65.07-.3-.15-1.25-.46-2.38-1.47-.88-.79-1.48-1.76-1.65-2.06-.17-.3-.02-.46.13-.61.14-.14.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.07-.15-.67-1.62-.92-2.22-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.79.37-.27.3-1.03 1.01-1.03 2.46s1.06 2.85 1.2 3.05c.15.2 2.08 3.18 5.04 4.46.7.3 1.25.49 1.68.63.7.22 1.34.19 1.84.12.56-.08 1.77-.72 2.02-1.42.25-.7.25-1.3.17-1.42-.07-.12-.27-.2-.57-.35Z"/></svg><span>Chamar no WhatsApp</span></a>
+          <a class="srv-link" href="https://wa.me/5521994822784?text=Ol%C3%A1!%20Quero%20um%20or%C3%A7amento%20de%20Mega%20Hair%20Personalizado." target="_blank" rel="noopener"><svg class="btn-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M20.52 3.48A11.9 11.9 0 0 0 12.05 0C5.48 0 .13 5.35.13 11.92c0 2.1.55 4.15 1.6 5.98L.02 24l6.25-1.64a11.9 11.9 0 0 0 5.77 1.48h.01c6.56 0 11.9-5.35 11.9-11.92 0-3.18-1.24-6.16-3.43-8.44Zm-8.47 18.3h-.01a9.88 9.88 0 0 1-5.04-1.38l-.36-.22-3.71.97.99-3.62-.24-.37a9.88 9.88 0 0 1-1.52-5.24C2.16 6.47 6.6 2.03 12.05 2.03c2.64 0 5.12 1.03 6.99 2.91a9.82 9.82 0 0 1 2.89 7c0 5.45-4.44 9.84-9.88 9.84Zm5.41-7.37c-.3-.15-1.77-.87-2.04-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.17-.17.2-.35.22-.65.07-.3-.15-1.25-.46-2.38-1.47-.88-.79-1.48-1.76-1.65-2.06-.17-.3-.02-.46.13-.61.14-.14.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.07-.15-.67-1.62-.92-2.22-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.79.37-.27.3-1.03 1.01-1.03 2.46s1.06 2.85 1.2 3.05c.15.2 2.08 3.18 5.04 4.46.7.3 1.25.49 1.68.63.7.22 1.34.19 1.84.12.56-.08 1.77-.72 2.02-1.42.25-.7.25-1.3.17-1.42-.07-.12-.27-.2-.57-.35Z"/></svg><span>Orçar no WhatsApp</span></a>
         </div>
       </article>
       <article class="srv-item rv">
@@ -887,7 +791,7 @@ p, .micro, .muted{
         <p>Reposições que preservam seu fio natural e mantêm brilho e movimento sempre bonitos.</p>
         <div class="srv-foot">
           <span class="srv-tag">Investimento definido na avaliação</span>
-          <a class="srv-link" href="https://wa.me/5521994822784?text=Ol%C3%A1!%20Quero%20um%20or%C3%A7amento%20de%20Manuten%C3%A7%C3%A3o%20%26%20Cuidado." target="_blank" rel="noopener"><svg class="btn-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M20.52 3.48A11.9 11.9 0 0 0 12.05 0C5.48 0 .13 5.35.13 11.92c0 2.1.55 4.15 1.6 5.98L.02 24l6.25-1.64a11.9 11.9 0 0 0 5.77 1.48h.01c6.56 0 11.9-5.35 11.9-11.92 0-3.18-1.24-6.16-3.43-8.44Zm-8.47 18.3h-.01a9.88 9.88 0 0 1-5.04-1.38l-.36-.22-3.71.97.99-3.62-.24-.37a9.88 9.88 0 0 1-1.52-5.24C2.16 6.47 6.6 2.03 12.05 2.03c2.64 0 5.12 1.03 6.99 2.91a9.82 9.82 0 0 1 2.89 7c0 5.45-4.44 9.84-9.88 9.84Zm5.41-7.37c-.3-.15-1.77-.87-2.04-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.17-.17.2-.35.22-.65.07-.3-.15-1.25-.46-2.38-1.47-.88-.79-1.48-1.76-1.65-2.06-.17-.3-.02-.46.13-.61.14-.14.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.07-.15-.67-1.62-.92-2.22-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.79.37-.27.3-1.03 1.01-1.03 2.46s1.06 2.85 1.2 3.05c.15.2 2.08 3.18 5.04 4.46.7.3 1.25.49 1.68.63.7.22 1.34.19 1.84.12.56-.08 1.77-.72 2.02-1.42.25-.7.25-1.3.17-1.42-.07-.12-.27-.2-.57-.35Z"/></svg><span>Chamar no WhatsApp</span></a>
+          <a class="srv-link" href="https://wa.me/5521994822784?text=Ol%C3%A1!%20Quero%20um%20or%C3%A7amento%20de%20Manuten%C3%A7%C3%A3o%20%26%20Cuidado." target="_blank" rel="noopener"><svg class="btn-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M20.52 3.48A11.9 11.9 0 0 0 12.05 0C5.48 0 .13 5.35.13 11.92c0 2.1.55 4.15 1.6 5.98L.02 24l6.25-1.64a11.9 11.9 0 0 0 5.77 1.48h.01c6.56 0 11.9-5.35 11.9-11.92 0-3.18-1.24-6.16-3.43-8.44Zm-8.47 18.3h-.01a9.88 9.88 0 0 1-5.04-1.38l-.36-.22-3.71.97.99-3.62-.24-.37a9.88 9.88 0 0 1-1.52-5.24C2.16 6.47 6.6 2.03 12.05 2.03c2.64 0 5.12 1.03 6.99 2.91a9.82 9.82 0 0 1 2.89 7c0 5.45-4.44 9.84-9.88 9.84Zm5.41-7.37c-.3-.15-1.77-.87-2.04-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.17-.17.2-.35.22-.65.07-.3-.15-1.25-.46-2.38-1.47-.88-.79-1.48-1.76-1.65-2.06-.17-.3-.02-.46.13-.61.14-.14.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.07-.15-.67-1.62-.92-2.22-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.79.37-.27.3-1.03 1.01-1.03 2.46s1.06 2.85 1.2 3.05c.15.2 2.08 3.18 5.04 4.46.7.3 1.25.49 1.68.63.7.22 1.34.19 1.84.12.56-.08 1.77-.72 2.02-1.42.25-.7.25-1.3.17-1.42-.07-.12-.27-.2-.57-.35Z"/></svg><span>Orçar no WhatsApp</span></a>
         </div>
       </article>
       <article class="srv-item rv">
@@ -895,7 +799,7 @@ p, .micro, .muted{
         <p>Diagnóstico do seu caso, plano de transformação e orçamento claro — sem compromisso.</p>
         <div class="srv-foot">
           <span class="srv-tag">Primeiro passo</span>
-          <a class="srv-link" href="https://wa.me/5521994822784?text=Ol%C3%A1!%20Quero%20agendar%20minha%20avalia%C3%A7%C3%A3o%20personalizada." target="_blank" rel="noopener"><svg class="btn-icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M20.52 3.48A11.9 11.9 0 0 0 12.05 0C5.48 0 .13 5.35.13 11.92c0 2.1.55 4.15 1.6 5.98L.02 24l6.25-1.64a11.9 11.9 0 0 0 5.77 1.48h.01c6.56 0 11.9-5.35 11.9-11.92 0-3.18-1.24-6.16-3.43-8.44Zm-8.47 18.3h-.01a9.88 9.88 0 0 1-5.04-1.38l-.36-.22-3.71.97.99-3.62-.24-.37a9.88 9.88 0 0 1-1.52-5.24C2.16 6.47 6.6 2.03 12.05 2.03c2.64 0 5.12 1.03 6.99 2.91a9.82 9.82 0 0 1 2.89 7c0 5.45-4.44 9.84-9.88 9.84Zm5.41-7.37c-.3-.15-1.77-.87-2.04-.97-.27-.1-.47-.15-.67.15-.2.3-.77.97-.94 1.17-.17.2-.35.22-.65.07-.3-.15-1.25-.46-2.38-1.47-.88-.79-1.48-1.76-1.65-2.06-.17-.3-.02-.46.13-.61.14-.14.3-.35.45-.52.15-.17.2-.3.3-.5.1-.2.05-.37-.02-.52-.07-.15-.67-1.62-.92-2.22-.24-.58-.49-.5-.67-.51h-.57c-.2 0-.52.07-.79.37-.27.3-1.03 1.01-1.03 2.46s1.06 2.85 1.2 3.05c.15.2 2.08 3.18 5.04 4.46.7.3 1.25.49 1.68.63.7.22 1.34.19 1.84.12.56-.08 1.77-.72 2.02-1.42.25-.7.25-1.3.17-1.42-.07-.12-.27-.2-.57-.35Z"/></svg><span>Agendar avaliação</span></a>
+          <a class="srv-link" href="https://wa.me/5521994822784?text=Ol%C3%A1!%20Quero%20agendar%20minha%20avalia%C3%A7%C3%A3o%20personalizada." target="_blank" rel="noopener">Agendar avaliação</a>
         </div>
       </article>
     </div>
@@ -906,8 +810,8 @@ p, .micro, .muted{
 <section aria-labelledby="t-gal">
   <div class="wrap">
     <div class="section-head rv">
-      <p class="kicker">Portfólio&nbsp;vivo</p>
-      <h2 id="t-gal">Resultados que falam por&nbsp;si</h2>
+      <p class="kicker">Portfólio vivo</p>
+      <h2 id="t-gal">Resultados que falam por si</h2>
     </div>
     <div class="gal">
       <figure class="tile rv">
@@ -948,8 +852,8 @@ p, .micro, .muted{
 <section aria-labelledby="t-obj">
   <div class="wrap">
     <div class="section-head rv">
-      <p class="kicker">Sem medo de&nbsp;perguntar</p>
-      <h2 id="t-obj">O que toda cliente pergunta&nbsp;antes</h2>
+      <p class="kicker">Sem medo de perguntar</p>
+      <h2 id="t-obj">O que toda cliente pergunta antes</h2>
     </div>
     <div class="obj">
       <div class="obj-item rv">
@@ -973,8 +877,8 @@ p, .micro, .muted{
 <section class="depo" aria-labelledby="t-depo">
   <div class="wrap">
     <div class="section-head rv">
-      <p class="kicker">O que elas&nbsp;dizem</p>
-      <h2 id="t-depo">Transformações que você sente no espelho e&nbsp;na&nbsp;vida</h2>
+      <p class="kicker">O que elas dizem</p>
+      <h2 id="t-depo">Transformações que você sente no espelho e na vida</h2>
       <p class="muted" style="font-weight:300;max-width:48ch;margin-top:.4rem">Depoimentos reais de clientes que escolheram acabamento natural e cuidado real do fio.</p>
     </div>
 
@@ -1061,11 +965,11 @@ p, .micro, .muted{
   <div class="wrap">
     <figure class="media rv">
       <!-- SUBSTITUIR: foto real — mãos da especialista mostrando linha de aplicação discreta (4:5) -->
-      <img src="img/hero2.avif" alt="Resultado mega hair Sabrina Rocha" width="400" height="500" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center top;display:block" loading="eager" fetchpriority="high" decoding="async">
+      <img src="img/hero1.avif" alt="Resultado mega hair Sabrina Rocha" width="400" height="500" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center top;display:block" loading="eager" fetchpriority="high" decoding="async">
     </figure>
     <div class="rv" style="display:grid;gap:.9rem;justify-items:center">
-      <p class="kicker">Sem pressão, sem&nbsp;surpresa</p>
-      <h2 id="t-final">Pronta para se reconhecer no&nbsp;espelho?</h2>
+      <p class="kicker">Sem pressão, sem surpresa</p>
+      <h2 id="t-final">Pronta para se reconhecer no espelho?</h2>
       <p class="lead">O primeiro passo é uma conversa: envie sua foto, receba uma leitura honesta do seu caso e o caminho real até o cabelo que você quer. Se não for para você, tudo bem — você sai com orientação, não com obrigação.</p>
     </div>
     <div class="cta-zone rv">
@@ -1085,13 +989,13 @@ p, .micro, .muted{
   <div class="wrap">
     <div class="map-card rv">
       <div class="map-body">
-        <p class="kicker">Onde&nbsp;encontrar</p>
-        <h2 id="t-map" style="font-size:clamp(1.3rem,4.6vw,1.7rem)">R. Manoel Vieira, 74 Duque de Caxias — RJ</h2>
+        <p class="kicker">Onde encontrar</p>
+        <h2 id="t-map" style="font-size:clamp(1.3rem,4.6vw,1.7rem)">Rio de Janeiro — RJ</h2>
         <!-- SUBSTITUIR: endereço/exato e query do mapa quando confirmado; endereço completo é informado no agendamento -->
-        <p class="muted small">Atendimento com hora marcada.<br>R. Manoel Vieira, 74 - Lj 107 - Vila Meriti, Duque de&nbsp;Caxias&nbsp;-&nbsp;RJ</p>
-        <a class="btn-ghost" id="mapBtn" href="https://www.google.com/maps/dir/?api=1&destination=-22.7860638,-43.3138692" target="_blank" rel="noopener"><svg class="btn-icon pin-anim" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true" focusable="false"><path d="M12 21s7-6.2 7-12a7 7 0 1 0-14 0c0 5.8 7 12 7 12Z"/><circle cx="12" cy="9" r="2.3"/></svg><span>Como chegar</span></a>
+        <p class="muted small">Atendimento com hora marcada. O endereço completo é confirmado no agendamento.</p>
+        <button class="btn-ghost" id="mapBtn" type="button"><svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true" focusable="false"><path d="M12 21s7-6.2 7-12a7 7 0 1 0-14 0c0 5.8 7 12 7 12Z"/><circle cx="12" cy="9" r="2.3"/></svg><span>Abrir mapa</span></button>
       </div>
-      
+      <div class="map-frame" id="mapFrame" hidden></div>
     </div>
   </div>
 </section>
@@ -1100,15 +1004,16 @@ p, .micro, .muted{
 <!-- ============ 10 FOOTER ============ -->
 <footer>
   <div class="wrap">
-    <span class="lockup" style="display:grid;place-items:center" aria-hidden="true">
-      <img src="img/logo1.avif" alt="Espaço Sabrina Rocha" class="footer-logo" width="320" height="auto" style="width:min(60vw, 180px);height:auto;display:block;object-fit:contain" loading="lazy" decoding="async">
+    <span class="lockup" style="display:grid;gap:0;justify-items:center" aria-hidden="true">
+      <span class="espaco" style="font-size:.6rem;letter-spacing:.5em;color:var(--rose);opacity:.8">Espaço</span>
+      <span style="font-family:var(--font-display);font-size:1.15rem;letter-spacing:.06em;text-transform:uppercase;background:linear-gradient(115deg,#EFC5C1,var(--rose-deep));-webkit-background-clip:text;background-clip:text;color:transparent">Sabrina Rocha</span>
     </span>
     <nav class="foot-links" aria-label="Contato">
       <a href="https://www.instagram.com/sabrinarochamegahair" target="_blank" rel="noopener">Instagram</a>
       <a href="https://wa.me/5521994822784?text=Ol%C3%A1%2C%20Sabrina!%20Vim%20pelo%20site." target="_blank" rel="noopener">WhatsApp</a>
       <a href="tel:+5521994822784">Ligar</a>
     </nav>
-    <p class="foot-note">Rio de Janeiro • RJ — atendimento com hora&nbsp;marcada.<br>© <span id="yy">2025</span> Sabrina Rocha.</p>
+    <p class="foot-note">Rio de Janeiro • RJ — atendimento com hora marcada.<br>© <span id="yy">2025</span> Sabrina Rocha. Imagens meramente ilustrativas.</p>
   </div>
 </footer>
 
@@ -1273,8 +1178,20 @@ p, .micro, .muted{
     });
   }, 900);
 
-  /* Mapa removido - Como chegar agora abre rota direta no Google Maps */
-/* ---- Ano do footer ---- */
+  /* ---- Mapa click-to-load (performance no 4G/webview) ---- */
+  var mapBtn = document.getElementById("mapBtn"),
+      mapFrame = document.getElementById("mapFrame");
+  if (mapBtn && mapFrame) {
+    mapBtn.addEventListener("click", function(){
+      /* SUBSTITUIR query pelo endereço exato quando confirmado */
+      var src = "https://www.google.com/maps?q=" + encodeURIComponent("Rio de Janeiro, RJ") + "&output=embed";
+      mapFrame.innerHTML = '<iframe src="' + src + '" title="Mapa da localização do Espaço Sabrina Rocha" loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe>';
+      mapFrame.hidden = false;
+      mapBtn.style.display = "none";
+    });
+  }
+
+  /* ---- Ano do footer ---- */
   var yearEl = document.getElementById("yy"); if (yearEl) yearEl.textContent = new Date().getFullYear();
 })();
 </script>
